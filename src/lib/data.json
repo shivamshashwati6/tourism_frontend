@@ -70,7 +70,6 @@
     }
   ],
   "categories": [
-    { "id": "trending", "label": "Trending", "value": "Trending" },
     { "id": "budget", "label": "Budget", "value": "Budget" },
     { "id": "ethnic", "label": "Ethnic", "value": "Ethnic" }
   ]
