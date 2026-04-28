@@ -31,14 +31,10 @@ export const ArtisanProfileCard = ({ artisan, isRecommended }: ArtisanProfileCar
         <img src={artisan.image} alt={artisan.name} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent"></div>
         <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-          <div>
-            <div className="flex items-center gap-1 mb-1">
-              <h3 className="text-lg font-bold text-slate-900">{artisan.name}</h3>
-              {artisan.isVerified && <CheckCircle2 size={16} className="text-tactical-emerald" />}
-            </div>
-            <div className="flex items-center gap-1 text-slate-600 text-xs">
-              <MapPin size={12} className="text-tactical-emerald" />
-              <span>{artisan.location}</span>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-1.5 text-slate-800 bg-white/40 backdrop-blur-sm px-2 py-1 rounded-lg border border-white/40 shadow-sm w-fit">
+              <MapPin size={14} className="text-tactical-emerald" />
+              <span className="text-xs font-bold tracking-tight">{artisan.location}</span>
             </div>
           </div>
           <div className="bg-white/90 backdrop-blur-md border border-tactical-emerald/20 px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
@@ -53,12 +49,19 @@ export const ArtisanProfileCard = ({ artisan, isRecommended }: ArtisanProfileCar
           "{artisan.bio}"
         </p>
         
-        <div className="flex items-center justify-between">
-          <div className="text-[10px] uppercase tracking-widest text-tactical-emerald/80 font-mono">
-            {artisan.experienceCount} Experiences Active
+        <div className="flex items-center justify-between gap-4">
+          <div className="text-[10px] uppercase tracking-widest text-tactical-emerald/80 font-mono leading-tight">
+            {artisan.experienceCount}<br/>Active Units
           </div>
-          <button className="bg-tactical-emerald hover:bg-tactical-accent text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-lg shadow-tactical-emerald/20">
-            View Story
+          <button className="flex items-center gap-2 bg-white border border-tactical-emerald/30 hover:border-tactical-emerald px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md group/btn">
+            {artisan.isVerified ? (
+              <CheckCircle2 size={14} className="text-tactical-emerald" />
+            ) : (
+              <Star size={14} className="text-tactical-emerald" />
+            )}
+            <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-900 font-mono">
+              {artisan.name}
+            </span>
           </button>
         </div>
       </div>
