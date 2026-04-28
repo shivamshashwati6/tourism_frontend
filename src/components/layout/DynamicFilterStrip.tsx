@@ -18,18 +18,17 @@ export const DynamicFilterStrip = () => {
   };
 
   return (
-    <div className="px-4 pb-4 overflow-x-auto no-scrollbar touch-pan-x">
-      <div className="flex gap-3 whitespace-nowrap">
-        {/* Trending is the new default/Slot 1 */}
+    <div className="px-4 pb-6 overflow-x-auto no-scrollbar touch-pan-x max-w-screen-md mx-auto">
+      <div className="flex gap-2 whitespace-nowrap">
         <button
           onClick={() => setActiveCategory(null)}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-bold transition-all border font-mono uppercase tracking-wider ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all border ${
             activeCategory === null
-              ? 'bg-tactical-emerald border-tactical-emerald text-white shadow-lg shadow-tactical-emerald/20'
-              : 'bg-white/40 backdrop-blur-md border-slate-900/10 text-slate-500 hover:border-slate-300'
+              ? 'bg-slate-900 border-slate-900 text-white'
+              : 'bg-slate-50 border-slate-100 text-slate-500 hover:border-slate-200'
           }`}
         >
-          <Zap size={14} className={activeCategory === null ? 'text-white' : 'text-tactical-emerald'} />
+          <Zap size={12} className={activeCategory === null ? 'text-white' : 'text-slate-400'} />
           Trending
         </button>
 
@@ -37,13 +36,13 @@ export const DynamicFilterStrip = () => {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.value)}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-bold transition-all border font-mono uppercase tracking-wider ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all border ${
               activeCategory === cat.value
-                ? 'bg-tactical-emerald border-tactical-emerald text-white shadow-lg shadow-tactical-emerald/20'
-                : 'bg-white/40 backdrop-blur-md border-slate-900/10 text-slate-500 hover:border-slate-300'
+                ? 'bg-slate-900 border-slate-900 text-white'
+                : 'bg-slate-50 border-slate-100 text-slate-500 hover:border-slate-200'
             }`}
           >
-            <div className={activeCategory === cat.value ? 'text-white' : 'text-tactical-emerald'}>
+            <div className={activeCategory === cat.value ? 'text-white' : 'text-slate-400'}>
               {getIcon(cat.id)}
             </div>
             {cat.label}

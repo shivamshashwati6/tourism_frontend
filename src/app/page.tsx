@@ -14,16 +14,12 @@ export default function Home() {
   const [activeZone, setActiveZone] = React.useState('Home');
 
   return (
-    <main className="relative min-h-screen bg-background pb-32">
-      {/* Background Ambience - Terra Light */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-tactical-emerald/5 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] bg-blue-500/5 blur-[100px] rounded-full"></div>
-      </div>
-
       <TopBar />
-      <HeaderSearch />
-      <DynamicFilterStrip />
+      
+      {/* Main Content Area with Vertical Cross-Fade */}
+      <div className="max-w-screen-md mx-auto relative min-h-[60vh]">
+        <HeaderSearch />
+        <DynamicFilterStrip />
       
       {/* Main Content Area with Vertical Cross-Fade */}
       <div className="px-4 relative min-h-[60vh]">
@@ -43,7 +39,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="flex flex-col">
             {activeZone === 'Home' ? (
               recommendedItems.map((item, index) => {
                 if (item.type === 'artisan') {

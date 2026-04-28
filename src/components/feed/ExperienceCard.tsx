@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Clock, Tag, ArrowRight } from 'lucide-react';
-
+import { Heart, MessageCircle, Repeat2, Share, Clock, Tag } from 'lucide-react';
 
 interface ExperienceCardProps {
   experience: {
@@ -19,54 +18,72 @@ interface ExperienceCardProps {
 
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   return (
-    <div className="bg-white/70 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden relative group transition-all duration-500 hover:border-tactical-emerald/40 shadow-sm hover:shadow-terra">
-
-      
-      <div className="relative h-56 overflow-hidden">
-        <img 
-          src={experience.image} 
-          alt={experience.title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent"></div>
-        
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-tactical-emerald/20 px-3 py-1.5 rounded-xl shadow-sm">
-          <span className="text-tactical-emerald font-bold">₹{experience.price}</span>
-          <span className="text-slate-500 text-[10px] ml-1 uppercase">/ Session</span>
-        </div>
-
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex gap-2 mb-2">
-            {experience.tags.map(tag => (
-              <span key={tag} className="bg-tactical-emerald/10 backdrop-blur-md text-tactical-emerald px-2 py-0.5 rounded text-[9px] uppercase tracking-wider border border-tactical-emerald/20 font-bold">
-                {tag}
-              </span>
-            ))}
+    <div className="relative grid grid-cols-[70px_1fr] group">
+      {/* The Spine Column */}
+      <div className="flex flex-col items-center relative">
+        <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-100 shadow-sm z-10 bg-white flex items-center justify-center">
+          <div className="bg-tactical-emerald/10 w-full h-full flex items-center justify-center">
+            <Tag size={20} className="text-tactical-emerald" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 leading-tight">{experience.title}</h3>
         </div>
+        {/* Visual Spine */}
+        <div className="absolute left-[34.5px] top-[48px] bottom-0 w-[1px] bg-black/10"></div>
       </div>
 
-      <div className="p-5">
-        <div className="flex items-center gap-4 mb-4 text-slate-500 text-xs">
-          <div className="flex items-center gap-1">
-            <Clock size={14} className="text-tactical-emerald" />
-            <span>{experience.duration}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Tag size={14} className="text-tactical-emerald" />
-            <span>{experience.category}</span>
-          </div>
+      {/* Content Column */}
+      <div className="pb-8 pr-4">
+        {/* Identity Header */}
+        <div className="flex items-center gap-1.5 mb-1">
+          <span className="font-semibold text-[15px] text-slate-900 leading-tight">
+            NE Explorer
+          </span>
+          <span className="text-slate-500 text-sm ml-1">·</span>
+          <span className="text-slate-500 text-sm">4h</span>
         </div>
 
-        <p className="text-sm text-slate-600 line-clamp-2 mb-5">
+        <div className="mb-2">
+           <h3 className="text-[17px] font-bold text-slate-900 leading-tight mb-1">{experience.title}</h3>
+           <div className="flex items-center gap-3 text-slate-500 text-[12px]">
+             <div className="flex items-center gap-1">
+               <Clock size={12} className="text-tactical-emerald" />
+               <span>{experience.duration}</span>
+             </div>
+             <div className="font-bold text-tactical-emerald">₹{experience.price}</div>
+           </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-[15px] text-slate-700 leading-normal mb-3">
           {experience.description}
         </p>
-        
-        <button className="w-full group/btn relative flex items-center justify-center gap-2 bg-tactical-emerald/5 border border-tactical-emerald/20 hover:border-tactical-emerald hover:bg-tactical-emerald/10 text-tactical-emerald py-3 rounded-2xl transition-all duration-300">
-          <span className="text-sm font-bold uppercase tracking-widest">Initiate Booking</span>
-          <ArrowRight size={16} className="text-tactical-emerald transition-transform group-hover/btn:translate-x-1" />
-        </button>
+
+        {/* Media Assets */}
+        <div className="relative rounded-xl overflow-hidden border border-slate-100 mb-4 bg-slate-50">
+          <img 
+            src={experience.image} 
+            alt={experience.title} 
+            className="w-full h-auto object-cover max-h-[400px] hover:scale-[1.02] transition-transform duration-700" 
+          />
+        </div>
+
+        {/* Interaction Matrix (Action Bar) */}
+        <div className="flex items-center justify-between max-w-[320px] text-slate-400">
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <Heart size={18} className="group-hover/icon:fill-tactical-green/20" />
+            <span className="text-xs font-medium">42</span>
+          </button>
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <MessageCircle size={18} />
+            <span className="text-xs font-medium">8</span>
+          </button>
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <Repeat2 size={18} />
+            <span className="text-xs font-medium">15</span>
+          </button>
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <Share size={18} />
+          </button>
+        </div>
       </div>
     </div>
   );

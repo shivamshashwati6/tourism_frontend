@@ -28,9 +28,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Spine Stream Utility */
+.spine-line {
+  @apply absolute left-[23.5px] top-[48px] bottom-0 w-[1px] bg-slate-200/50;
+}
+
 /* Glassmorphism Utility */
 .glass-panel {
-  @apply bg-white/70 backdrop-blur-md border border-white/20;
+  @apply bg-white/95 backdrop-blur-[20px] border-t border-black/[0.05];
 }
 
 .glass-card {

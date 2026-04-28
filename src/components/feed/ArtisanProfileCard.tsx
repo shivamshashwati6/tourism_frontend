@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Star, MapPin, CheckCircle2 } from 'lucide-react';
+import { Heart, MessageCircle, Repeat2, Share, CheckCircle2 } from 'lucide-react';
 
 interface ArtisanProfileCardProps {
   artisan: {
@@ -18,41 +18,64 @@ interface ArtisanProfileCardProps {
 
 export const ArtisanProfileCard = ({ artisan }: ArtisanProfileCardProps) => {
   return (
-    <div className="bg-white/70 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden relative group transition-all duration-500 hover:border-tactical-emerald/40 shadow-sm hover:shadow-terra">
-
-      
-      <div className="relative h-48">
-        <img src={artisan.image} alt={artisan.name} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent"></div>
-        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-1.5 text-slate-800 bg-white/40 backdrop-blur-sm px-2 py-1 rounded-lg border border-white/40 shadow-sm w-fit">
-              <MapPin size={14} className="text-tactical-emerald" />
-              <span className="text-xs font-bold tracking-tight">{artisan.location}</span>
-            </div>
-          </div>
-          <div className="bg-white/90 backdrop-blur-md border border-tactical-emerald/20 px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
-            <Star size={12} className="text-tactical-emerald fill-tactical-emerald" />
-            <span className="text-xs font-bold text-tactical-emerald">{artisan.rating}</span>
-          </div>
+    <div className="relative grid grid-cols-[70px_1fr] group">
+      {/* The Spine Column */}
+      <div className="flex flex-col items-center relative">
+        <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-100 shadow-sm z-10 bg-white">
+          <img 
+            src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${artisan.name}`} 
+            alt={artisan.name} 
+            className="w-full h-full object-cover" 
+          />
         </div>
+        {/* Visual Spine */}
+        <div className="absolute left-[34.5px] top-[48px] bottom-0 w-[1px] bg-black/10"></div>
       </div>
 
-      <div className="p-5">
-        <p className="text-sm text-slate-600 line-clamp-2 mb-4 italic">
-          "{artisan.bio}"
+      {/* Content Column */}
+      <div className="pb-8 pr-4">
+        {/* Identity Header */}
+        <div className="flex items-center gap-1.5 mb-1">
+          <span className="font-semibold text-[15px] text-slate-900 leading-tight">
+            {artisan.name}
+          </span>
+          {artisan.isVerified && (
+            <CheckCircle2 size={14} className="text-blue-500 fill-blue-500 text-white" />
+          )}
+          <span className="text-slate-500 text-sm ml-1">·</span>
+          <span className="text-slate-500 text-sm">2h</span>
+        </div>
+
+        {/* Bio / Text Content */}
+        <p className="text-[15px] text-slate-700 leading-normal mb-3">
+          {artisan.bio}
         </p>
-        
-        <div className="flex justify-end pt-2">
-          <button className="flex items-center gap-2 bg-white border border-tactical-emerald/30 hover:border-tactical-emerald px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md group/btn">
-            {artisan.isVerified ? (
-              <CheckCircle2 size={14} className="text-tactical-emerald" />
-            ) : (
-              <Star size={14} className="text-tactical-emerald" />
-            )}
-            <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-900 font-mono">
-              {artisan.name}
-            </span>
+
+        {/* Media Assets */}
+        <div className="relative rounded-xl overflow-hidden border border-slate-100 mb-4 bg-slate-50">
+          <img 
+            src={artisan.image} 
+            alt="Artisan Showcase" 
+            className="w-full h-auto object-cover max-h-[400px] hover:scale-[1.02] transition-transform duration-700" 
+          />
+        </div>
+
+        {/* Interaction Matrix (Action Bar) */}
+        <div className="flex items-center justify-between max-w-[320px] text-slate-400">
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <Heart size={18} className="group-hover/icon:fill-tactical-green/20" />
+            <span className="text-xs font-medium">24</span>
+          </button>
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <MessageCircle size={18} />
+            <span className="text-xs font-medium">12</span>
+          </button>
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <Repeat2 size={18} />
+            <span className="text-xs font-medium">6</span>
+          </button>
+          <button className="flex items-center gap-2 group/icon hover:text-tactical-green transition-colors">
+            <Share size={18} />
           </button>
         </div>
       </div>

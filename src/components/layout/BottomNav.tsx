@@ -11,7 +11,7 @@ export const BottomNav = ({
   onZoneChange: (zone: string) => void 
 }) => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-[15px] border-t border-black/[0.08] px-2 pt-2 shadow-sm pb-[env(safe-area-inset-bottom,16px)]">
+    <nav className="fixed bottom-0 left-0 right-0 z-[1000] bg-white/95 backdrop-blur-[20px] border-t border-black/[0.05] px-2 pt-2 shadow-sm pb-[env(safe-area-inset-bottom,16px)]">
       <div className="max-w-screen-xl mx-auto flex items-center justify-around h-16">
         <NavItem 
           icon={<Home size={22} strokeWidth={2} />} 
