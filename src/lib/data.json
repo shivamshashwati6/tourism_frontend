@@ -39,7 +39,7 @@
       "id": "e1",
       "artisanId": "a1",
       "title": "Moirang Phee Weaving Masterclass",
-      "category": "Authentic Handloom",
+      "category": "Ethnic",
       "price": 1200,
       "duration": "4 hours",
       "image": "https://images.unsplash.com/photo-1583091000305-671239c09930?q=80&w=1000",
@@ -50,7 +50,7 @@
       "id": "e2",
       "artisanId": "a2",
       "title": "Bamboo Crafting Workshop",
-      "category": "Local Stalls",
+      "category": "Budget",
       "price": 850,
       "duration": "3 hours",
       "image": "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=1000",
@@ -61,7 +61,7 @@
       "id": "e3",
       "artisanId": "a3",
       "title": "Majuli River Island Pottery Tour",
-      "category": "Eco-Tours",
+      "category": "Trending",
       "price": 1500,
       "duration": "Full Day",
       "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1000",
@@ -70,8 +70,8 @@
     }
   ],
   "categories": [
-    { "id": "eco", "label": "🌿 Eco-Tours", "value": "Eco-Tours" },
-    { "id": "handloom", "label": "🧶 Authentic Handloom", "value": "Authentic Handloom" },
-    { "id": "stalls", "label": "📍 Local Stalls", "value": "Local Stalls" }
+    { "id": "trending", "label": "Trending", "value": "Trending" },
+    { "id": "budget", "label": "Budget", "value": "Budget" },
+    { "id": "ethnic", "label": "Ethnic", "value": "Ethnic" }
   ]
 }
