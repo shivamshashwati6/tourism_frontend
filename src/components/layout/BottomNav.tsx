@@ -1,24 +1,64 @@
 'use client';
 
 import React from 'react';
-import { Home, Search, PenSquare, Bell, User } from 'lucide-react';
+import { Home, Search, Plus, Bell, User } from 'lucide-react';
 
-export const BottomNav = () => {
+export const BottomNav = ({ 
+  activeZone, 
+  onZoneChange 
+}: { 
+  activeZone: string; 
+  onZoneChange: (zone: string) => void 
+}) => {
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50">
-      {/* Top Border Accent */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"></div>
-      
-      <div className="bg-[#080c0a]/98 backdrop-blur-xl border-t border-emerald-500/20 px-4 py-3 pb-6 flex items-center justify-around shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
-        <NavItem icon={<Home size={20} />} label="Home" active />
-        <NavItem icon={<Search size={20} />} label="Search" />
-        <NavItem icon={<PenSquare size={20} />} label="Post" />
-        <NavItem icon={<Bell size={20} />} label="Notifs" />
-        <NavItem icon={<User size={20} />} label="Profile" />
-      </div>
+    <nav className="fixed bottom-0 left-0 w-full z-50 px-4 pb-4">
+      <div className="max-w-md mx-auto relative">
+        {/* Soft wide-dispersion shadow for depth */}
+        <div className="absolute -inset-1 bg-black/5 blur-2xl rounded-3xl -z-10"></div>
+        
+        <div className="bg-white/70 backdrop-blur-[20px] border border-white/20 rounded-2xl flex items-center justify-between px-2 py-1 shadow-terra h-16">
+          <NavItem 
+            icon={<Home size={22} strokeWidth={1.5} />} 
+            label="Home" 
+            zone="Home" 
+            active={activeZone === 'Home'} 
+            onClick={() => onZoneChange('Home')}
+          />
+          <NavItem 
+            icon={<Search size={22} strokeWidth={1.5} />} 
+            label="Search" 
+            zone="Search" 
+            active={activeZone === 'Search'} 
+            onClick={() => onZoneChange('Search')}
+          />
+          
+          {/* Elevated Compose Hub */}
+          <div className="relative -top-4 px-2">
+            <div className="absolute inset-0 bg-tactical-emerald/20 blur-xl rounded-full scale-150"></div>
+            <button 
+              onClick={() => onZoneChange('Compose')}
+              className={`relative flex items-center justify-center w-14 h-14 bg-tactical-emerald text-white rounded-2xl shadow-lg shadow-tactical-emerald/30 active:scale-95 transition-all duration-300 ${activeZone === 'Compose' ? 'ring-4 ring-tactical-emerald/20' : ''}`}
+            >
+              <Plus size={28} strokeWidth={2} />
+            </button>
+          </div>
 
-      {/* SafeArea Bottom Spacer */}
-      <div className="bg-[#080c0a] h-1"></div>
+          <NavItem 
+            icon={<Bell size={22} strokeWidth={1.5} />} 
+            label="Notifs" 
+            zone="Notifications" 
+            active={activeZone === 'Notifications'} 
+            onClick={() => onZoneChange('Notifications')}
+          />
+          <NavItem 
+            icon={<User size={22} strokeWidth={1.5} />} 
+            label="Profile" 
+            zone="Profile" 
+            active={activeZone === 'Profile'} 
+            onClick={() => onZoneChange('Profile')}
+          />
+        </div>
+      </div>
     </nav>
   );
 };
@@ -26,21 +66,28 @@ export const BottomNav = () => {
 interface NavItemProps {
   icon: React.ReactNode;
   label: string;
+  zone: string;
   active?: boolean;
+  onClick: () => void;
 }
 
-const NavItem = ({ icon, label, active = false }: NavItemProps) => (
-  <button className={`flex flex-col items-center justify-center gap-1 transition-all duration-300 min-w-[64px] ${
-    active ? 'text-emerald-400' : 'text-white/30 hover:text-white/60'
-  }`}>
-    <div className={`transition-transform duration-300 ${active ? 'drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] scale-110' : ''}`}>
+const NavItem = ({ icon, label, zone, active = false, onClick }: NavItemProps) => (
+  <button 
+    onClick={onClick}
+    className={`flex flex-col items-center justify-center flex-1 h-full relative group transition-all duration-300`}
+  >
+    {/* Active indicator bar */}
+    {active && (
+      <div className="absolute top-0 w-8 h-[2px] bg-tactical-emerald rounded-full"></div>
+    )}
+    
+    <div className={`transition-all duration-300 ${active ? 'text-tactical-emerald' : 'text-slate-400 group-hover:text-slate-600'}`}>
       {icon}
     </div>
-    <span className={`text-[10px] font-bold tracking-wider uppercase ${active ? 'text-emerald-400' : 'text-white/20'}`}>
+    
+    <span className={`text-[10px] font-medium mt-1 transition-all duration-300 ${active ? 'text-tactical-emerald' : 'text-slate-400 group-hover:text-slate-600'}`}>
       {label}
     </span>
-    {active && (
-      <div className="absolute top-0 w-8 h-[2px] bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(16,185,129,1)]"></div>
-    )}
   </button>
 );
+
