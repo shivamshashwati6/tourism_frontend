@@ -1,32 +1,35 @@
 'use client';
 
 import React from 'react';
-import { Menu, Bell, User } from 'lucide-react';
-import { useAuth } from '@/context/AuthContext';
 
 export const TopBar = () => {
-  const { user } = useAuth();
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3">
-      <div className="glass-panel rounded-2xl px-4 py-2 flex items-center justify-between hud-element">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
-            <span className="text-xl font-bold neon-text">NE</span>
+      <div className="glass-panel rounded-2xl px-5 py-3 flex items-center justify-between hud-element border-white/5 bg-black/40 backdrop-blur-xl">
+        <div className="flex items-center gap-4">
+          {/* Custom Stylized Logo */}
+          <div className="relative flex items-center justify-center">
+            <div className="flex items-center">
+              <span className="text-3xl font-black italic tracking-tighter text-emerald-500 drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">N</span>
+              <span className="text-3xl font-black italic tracking-tighter text-amber-500 -ml-2 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]">E</span>
+            </div>
+            {/* Subtle glow behind the logo */}
+            <div className="absolute inset-0 bg-emerald-500/5 blur-xl rounded-full"></div>
           </div>
-          <div>
-            <h1 className="text-sm font-bold tracking-wider uppercase text-white/90">NE Threads</h1>
-            <p className="text-[10px] text-emerald-500 font-mono tracking-tight">TACTICAL_NODE_01</p>
+
+          <div className="flex flex-col">
+            <h1 className="text-xl font-bold tracking-tight text-white leading-none">
+              NE Threads
+            </h1>
+            <div className="h-[2px] w-full bg-gradient-to-r from-emerald-500 to-amber-500 mt-1 opacity-50"></div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <button className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-            <Bell size={18} className="text-emerald-400" />
-          </button>
-          <button className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-            <User size={18} className="text-emerald-400" />
-          </button>
+        {/* Right side intentionally empty per request */}
+        <div className="hidden md:block">
+          <div className="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5">
+            <span className="text-[10px] font-mono text-emerald-500 uppercase tracking-widest animate-pulse">System Live</span>
+          </div>
         </div>
       </div>
     </header>
