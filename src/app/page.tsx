@@ -14,7 +14,7 @@ export default function Home() {
   const [activeZone, setActiveZone] = React.useState('Home');
 
   return (
-    <main className="relative min-h-screen bg-background pb-28">
+    <main className="relative min-h-screen bg-background pb-32">
       {/* Background Ambience - Terra Light */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-tactical-emerald/5 blur-[120px] rounded-full"></div>
