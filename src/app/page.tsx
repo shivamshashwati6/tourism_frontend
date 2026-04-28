@@ -14,20 +14,19 @@ export default function Home() {
   const [activeZone, setActiveZone] = React.useState('Home');
 
   return (
+    <main className="relative min-h-screen bg-[#F8FAFC] pb-32">
       <TopBar />
       
-      {/* Main Content Area with Vertical Cross-Fade */}
-      <div className="max-w-screen-md mx-auto relative min-h-[60vh]">
+      {/* Main Content Area */}
+      <div className="max-w-screen-md mx-auto relative min-h-[60vh] px-4">
         <HeaderSearch />
         <DynamicFilterStrip />
-      
-      {/* Main Content Area with Vertical Cross-Fade */}
-      <div className="px-4 relative min-h-[60vh]">
+        
         <div 
           key={activeZone}
-          className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-forwards"
+          className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-forwards"
         >
-          <div className="flex items-center justify-between px-2 pt-2">
+          <div className="flex items-center justify-between px-2 pt-2 mb-8">
             <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-tactical-emerald">
               {activeZone === 'Home' 
                 ? (activeCategory ? `Filtered: ${activeCategory}` : 'Terra Command / Global Feed')
