@@ -13,7 +13,6 @@ interface ArtisanProfileCardProps {
     image: string;
     isVerified: boolean;
     rating: number;
-    experienceCount: number;
   };
   isRecommended?: boolean;
 }
@@ -49,10 +48,7 @@ export const ArtisanProfileCard = ({ artisan, isRecommended }: ArtisanProfileCar
           "{artisan.bio}"
         </p>
         
-        <div className="flex items-center justify-between gap-4">
-          <div className="text-[10px] uppercase tracking-widest text-tactical-emerald/80 font-mono leading-tight">
-            {artisan.experienceCount}<br/>Active Units
-          </div>
+        <div className="flex justify-end pt-2">
           <button className="flex items-center gap-2 bg-white border border-tactical-emerald/30 hover:border-tactical-emerald px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md group/btn">
             {artisan.isVerified ? (
               <CheckCircle2 size={14} className="text-tactical-emerald" />
