@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Heart, MessageCircle, Repeat2, Share, CheckCircle2 } from 'lucide-react';
+import { ExperienceCarousel } from '../ui/ExperienceCarousel';
 
 interface ArtisanProfileCardProps {
   artisan: {
@@ -10,7 +11,7 @@ interface ArtisanProfileCardProps {
     category: string;
     location: string;
     bio: string;
-    image: string;
+    images: string[];
     isVerified: boolean;
     rating: number;
   };
@@ -51,13 +52,9 @@ export const ArtisanProfileCard = ({ artisan }: ArtisanProfileCardProps) => {
           {artisan.bio}
         </p>
 
-        {/* Media Assets */}
-        <div className="relative rounded-xl overflow-hidden border border-slate-100 mb-4 bg-slate-50">
-          <img 
-            src={artisan.image} 
-            alt="Artisan Showcase" 
-            className="w-full h-auto object-cover max-h-[400px] hover:scale-[1.02] transition-transform duration-700" 
-          />
+        {/* Experience Carousel */}
+        <div className="mb-4">
+          <ExperienceCarousel images={artisan.images} />
         </div>
 
         {/* Interaction Matrix (Action Bar) */}

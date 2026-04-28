@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Heart, MessageCircle, Repeat2, Share, Clock, Tag } from 'lucide-react';
+import { ExperienceCarousel } from '../ui/ExperienceCarousel';
 
 interface ExperienceCardProps {
   experience: {
@@ -10,7 +11,7 @@ interface ExperienceCardProps {
     category: string;
     price: number;
     duration: string;
-    image: string;
+    images: string[];
     description: string;
     tags: string[];
   };
@@ -57,13 +58,9 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
           {experience.description}
         </p>
 
-        {/* Media Assets */}
-        <div className="relative rounded-xl overflow-hidden border border-slate-100 mb-4 bg-slate-50">
-          <img 
-            src={experience.image} 
-            alt={experience.title} 
-            className="w-full h-auto object-cover max-h-[400px] hover:scale-[1.02] transition-transform duration-700" 
-          />
+        {/* Experience Carousel */}
+        <div className="mb-4">
+          <ExperienceCarousel images={experience.images} />
         </div>
 
         {/* Interaction Matrix (Action Bar) */}
