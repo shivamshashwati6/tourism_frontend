@@ -39,7 +39,7 @@ export default function Home() {
         <div className="space-y-6">
           {recommendedItems.map((item, index) => {
             // Rudimentary recommendation logic: Top 2 items or items matching active category
-            const isRecommended = index < 2 || (activeCategory && item.category === activeCategory);
+            const isRecommended = index < 2 || (activeCategory !== null && item.category === activeCategory);
             
             if (item.type === 'artisan') {
               return (
