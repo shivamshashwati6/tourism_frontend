@@ -14,8 +14,8 @@ export const DynamicFilterStrip = () => {
           onClick={() => setActiveCategory(null)}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
             activeCategory === null
-              ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
-              : 'bg-white/5 border-white/10 text-white/40 hover:border-white/20'
+              ? 'bg-solar-blue text-white border-solar-blue shadow-[0_4px_12px_rgba(59,130,246,0.3)]'
+              : 'bg-white border-black/[0.05] text-slate-500 hover:border-solar-blue/30 hover:text-solar-blue'
           }`}
         >
           All Feeds
@@ -26,8 +26,8 @@ export const DynamicFilterStrip = () => {
             onClick={() => setActiveCategory(cat.value)}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
               activeCategory === cat.value
-                ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
-                : 'bg-white/5 border-white/10 text-white/40 hover:border-white/20'
+                ? 'bg-solar-blue text-white border-solar-blue shadow-[0_4px_12px_rgba(59,130,246,0.3)]'
+                : 'bg-white border-black/[0.05] text-slate-500 hover:border-solar-blue/30 hover:text-solar-blue'
             }`}
           >
             {cat.label}
@@ -37,3 +37,4 @@ export const DynamicFilterStrip = () => {
     </div>
   );
 };
+

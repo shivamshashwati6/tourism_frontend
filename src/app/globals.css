@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #050805;
-  --color-foreground: #e0f2e9;
+  --color-background: #F8FAFC;
+  --color-foreground: #1E293B;
   
-  --color-tactical-black: #0a0f0a;
-  --color-tactical-green: #1a2e1a;
-  --color-tactical-emerald: #10b981;
-  --color-tactical-accent: #059669;
+  --color-solar-blue: #3B82F6;
+  --color-solar-green: #10B981;
+  --color-solar-gray: #64748B;
   
-  --background-image-glass: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  
-  --shadow-neon: 0 0 15px rgba(16, 185, 129, 0.3);
-  --shadow-neon-strong: 0 0 25px rgba(16, 185, 129, 0.5);
+  --shadow-solar: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-inner-depth: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 :root {
-  --background: #050805;
-  --foreground: #e0f2e9;
+  --background: #F8FAFC;
+  --foreground: #1E293B;
+  --solar-blue: #3B82F6;
+  --solar-green: #10B981;
+  --solar-gray: #64748B;
 }
 
 body {
@@ -25,23 +25,35 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Grain Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Glassmorphism Utility */
 .glass-panel {
-  @apply bg-white/5 backdrop-blur-md border border-white/10;
+  @apply bg-white/70 backdrop-blur-[20px] border border-black/[0.05] shadow-sm;
 }
 
 .glass-card {
-  @apply bg-white/5 backdrop-blur-lg border border-emerald-500/20 shadow-xl;
+  @apply bg-white/70 backdrop-blur-[20px] border border-black/[0.05] shadow-[0_8px_32px_rgba(0,0,0,0.08)];
 }
 
-.neon-border {
-  @apply border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.2)];
-}
-
-.neon-text {
-  @apply text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.5)];
+/* Data Tiles (Pressed look as requested) */
+.data-tile {
+  @apply bg-slate-100/50 border border-black/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)];
 }
 
 .hud-element {
@@ -50,18 +62,24 @@ body {
 
 .hud-element::after {
   content: '';
-  @apply absolute inset-0 pointer-events-none border border-white/5;
+  @apply absolute inset-0 pointer-events-none border border-black/[0.03];
 }
 
-/* Scrollbar styling for tactical look */
+/* Typography Helpers */
+.text-technical {
+  @apply font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500;
+}
+
+/* Scrollbar styling for Solar Command look */
 ::-webkit-scrollbar {
   width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-black/20;
+  @apply bg-black/[0.02];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-emerald-900/50 rounded-full;
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
 }
+
