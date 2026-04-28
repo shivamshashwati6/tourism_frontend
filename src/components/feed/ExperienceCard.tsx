@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Clock, Tag, ArrowRight } from 'lucide-react';
-import { RecommendedBadge } from './ArtisanProfileCard';
+
 
 interface ExperienceCardProps {
   experience: {
@@ -15,17 +15,12 @@ interface ExperienceCardProps {
     description: string;
     tags: string[];
   };
-  isRecommended?: boolean;
 }
 
-export const ExperienceCard = ({ experience, isRecommended }: ExperienceCardProps) => {
+export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   return (
     <div className="bg-white/70 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden relative group transition-all duration-500 hover:border-tactical-emerald/40 shadow-sm hover:shadow-terra">
-      {isRecommended && (
-        <div className="absolute top-4 left-4 z-10">
-          <RecommendedBadge />
-        </div>
-      )}
+
       
       <div className="relative h-56 overflow-hidden">
         <img 

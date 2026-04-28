@@ -14,17 +14,12 @@ interface ArtisanProfileCardProps {
     isVerified: boolean;
     rating: number;
   };
-  isRecommended?: boolean;
 }
 
-export const ArtisanProfileCard = ({ artisan, isRecommended }: ArtisanProfileCardProps) => {
+export const ArtisanProfileCard = ({ artisan }: ArtisanProfileCardProps) => {
   return (
     <div className="bg-white/70 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden relative group transition-all duration-500 hover:border-tactical-emerald/40 shadow-sm hover:shadow-terra">
-      {isRecommended && (
-        <div className="absolute top-4 left-4 z-10">
-          <RecommendedBadge />
-        </div>
-      )}
+
       
       <div className="relative h-48">
         <img src={artisan.image} alt={artisan.name} className="w-full h-full object-cover" />
@@ -65,9 +60,4 @@ export const ArtisanProfileCard = ({ artisan, isRecommended }: ArtisanProfileCar
   );
 };
 
-export const RecommendedBadge = () => (
-  <div className="flex items-center gap-1.5 bg-tactical-emerald text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter shadow-lg shadow-tactical-emerald/30">
-    <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
-    AI Preferred
-  </div>
-);
+

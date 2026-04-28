@@ -46,14 +46,11 @@ export default function Home() {
           <div className="space-y-6">
             {activeZone === 'Home' ? (
               recommendedItems.map((item, index) => {
-                const isRecommended = index < 2 || (activeCategory !== null && item.category === activeCategory);
-                
                 if (item.type === 'artisan') {
                   return (
                     <ArtisanProfileCard 
                       key={`artisan-${item.id}`} 
                       artisan={item} 
-                      isRecommended={isRecommended}
                     />
                   );
                 }
@@ -62,7 +59,6 @@ export default function Home() {
                   <ExperienceCard 
                     key={`experience-${item.id}`} 
                     experience={item} 
-                    isRecommended={isRecommended}
                   />
                 );
               })
