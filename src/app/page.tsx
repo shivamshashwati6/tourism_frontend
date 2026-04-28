@@ -13,7 +13,7 @@ export default function Home() {
   const { recommendedItems, activeCategory } = useRecommendation();
 
   return (
-    <main className="relative min-h-screen bg-background pb-32">
+    <main className="relative min-h-screen bg-background pb-28">
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-emerald-900/10 blur-[120px] rounded-full"></div>
