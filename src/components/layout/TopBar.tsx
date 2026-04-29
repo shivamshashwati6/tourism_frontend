@@ -14,12 +14,12 @@ export const TopBar = () => {
         
         {/* Centered Logo: Spot-Lumina Aesthetic */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center group cursor-default select-none">
-          <div className="flex items-center text-[28px] text-slate-900 tracking-tight">
+          <div className="flex items-center text-[28px] text-slate-900 tracking-[-0.02em]">
             <span className="font-sans font-normal lowercase">spot</span>
-            <span className="text-tactical-emerald mx-0.5 relative flex items-center justify-center">
+            <span className="text-tactical-emerald mx-[1.5px] relative flex items-center justify-center">
               <span className="relative z-10 font-bold transition-all duration-300">@</span>
-              {/* @ Halo: Micro-motion triggered by navigation state */}
-              <span className={`absolute inset-[-4px] bg-tactical-emerald/15 blur-[2px] rounded-full transition-all duration-300 ease-in-out ${isSearch ? 'scale-110 opacity-100' : 'scale-100 opacity-60'}`}></span>
+              {/* @ Halo: Tightened contour for Atomic Core compression */}
+              <span className={`absolute inset-[-2.5px] bg-tactical-emerald/15 blur-[2px] rounded-full transition-all duration-300 ease-in-out ${isSearch ? 'scale-110 opacity-100' : 'scale-100 opacity-60'}`}></span>
             </span>
             <span className="font-mono font-bold uppercase">NE</span>
           </div>
