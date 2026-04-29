@@ -8,7 +8,7 @@ export const TopBar = () => {
   const isSearch = pathname === '/search';
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-[20px] border-b border-black/[0.05] px-4 py-[42px]">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-[20px] border-b border-black/[0.05] px-4 py-[16px]">
       <div className="relative flex items-center justify-between max-w-screen-md mx-auto h-[28px]">
         <div className="w-8"></div> {/* Spacer for symmetry */}
         
