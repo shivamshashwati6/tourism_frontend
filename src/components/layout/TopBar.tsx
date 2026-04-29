@@ -5,16 +5,12 @@ import React from 'react';
 export const TopBar = () => {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-[20px] border-b border-black/[0.05] px-4 py-3">
-      <div className="flex items-center justify-between max-w-screen-md mx-auto">
+      <div className="relative flex items-center justify-between max-w-screen-md mx-auto">
         <div className="w-8"></div> {/* Spacer for symmetry */}
         
-        {/* Centered Logo: spot@NE Migration */}
-        <div className="flex items-center gap-2 group cursor-default select-none">
-          <div className="flex items-center">
-            <span className="text-xl font-black italic tracking-tighter text-tactical-emerald">N</span>
-            <span className="text-xl font-black italic tracking-tighter text-amber-500 -ml-1">E</span>
-          </div>
-          <div className="flex items-center font-mono font-black text-[13px] uppercase tracking-tighter text-slate-900">
+        {/* Centered Logo: Consolidated spot@NE Branding */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center group cursor-default select-none">
+          <div className="flex items-center font-mono font-black text-[14px] uppercase tracking-tighter text-slate-900">
             <span>spot</span>
             <span className="text-tactical-emerald mx-0.5 relative flex items-center justify-center">
               <span className="relative z-10 drop-shadow-[0_0_5px_rgba(16,185,129,0.4)] group-hover:animate-radar-ping">@</span>
