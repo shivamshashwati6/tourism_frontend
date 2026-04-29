@@ -12,6 +12,13 @@ import { useRecommendation } from '@/context/RecommendationEngineContext';
 export default function Home() {
   const { recommendedItems, activeCategory } = useRecommendation();
   const [activeZone, setActiveZone] = React.useState('Home');
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  React.useEffect(() => {
+    if (activeZone !== 'Search') {
+      setSearchQuery('');
+    }
+  }, [activeZone]);
 
   return (
     <main className="relative min-h-screen bg-[#F8FAFC] pb-32">
@@ -19,8 +26,7 @@ export default function Home() {
       
       {/* Main Content Area */}
       <div className="max-w-screen-md mx-auto relative min-h-[60vh] px-4">
-        <HeaderSearch />
-        <DynamicFilterStrip />
+        {activeZone === 'Home' && <DynamicFilterStrip />}
         
         <div 
           key={activeZone}
@@ -57,6 +63,26 @@ export default function Home() {
                   />
                 );
               })
+            ) : activeZone === 'Search' ? (
+              <div className="flex flex-col">
+                <HeaderSearch query={searchQuery} onQueryChange={setSearchQuery} />
+                <div className="mt-4 mb-4">
+                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">Suggested Artisans</h3>
+                  <div className="flex flex-col gap-4">
+                    {recommendedItems.filter(i => i.type === 'artisan').slice(0, 2).map((item) => (
+                      <ArtisanProfileCard key={`suggested-${item.id}`} artisan={item} />
+                    ))}
+                  </div>
+                </div>
+                <div className="mt-6 mb-4">
+                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">Trending Experiences</h3>
+                  <div className="flex flex-col gap-4">
+                    {recommendedItems.filter(i => i.type === 'experience').slice(0, 2).map((item) => (
+                      <ExperienceCard key={`trending-${item.id}`} experience={item} />
+                    ))}
+                  </div>
+                </div>
+              </div>
             ) : (
               <div className="flex flex-col items-center justify-center py-20 text-slate-400">
                 <div className="w-16 h-16 rounded-full border border-slate-200 flex items-center justify-center mb-4">
