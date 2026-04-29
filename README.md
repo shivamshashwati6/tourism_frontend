@@ -1,6 +1,6 @@
-# NE Threads | Cultural Marketplace & Tourism
+# spot@NE | Regional Artisans & Experiences
 
-Tactical marketplace for authentic handloom and cultural tourism in Northeast India.
+Digital spotlight on authentic regional artisans and curated cultural experiences across Northeast India.
 
 ## Tech Stack
 - **Framework**: Next.js (App Router)

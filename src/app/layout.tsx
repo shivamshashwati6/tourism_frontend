@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NE Threads | Cultural Marketplace & Tourism",
-  description: "Tactical marketplace for authentic handloom and cultural tourism in Northeast India.",
+  title: "spot@NE | Regional Artisans & Experiences",
+  description: "Digital spotlight on authentic regional artisans and curated cultural experiences across Northeast India.",
 };
 
 export default function RootLayout({
