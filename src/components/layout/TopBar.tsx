@@ -10,13 +10,13 @@ export const TopBar = () => {
         
         {/* Centered Logo: Consolidated spot@NE Branding */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center group cursor-default select-none">
-          <div className="flex items-center font-mono font-bold text-[26px] uppercase tracking-[0.05em] text-slate-900">
-            <span>spot</span>
-            <span className="text-tactical-emerald mx-0.5 relative flex items-center justify-center">
-              <span className="relative z-10 drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] group-hover:animate-radar-ping">@</span>
+          <div className="flex items-center font-mono font-extrabold text-[26px] uppercase tracking-[0.1em] text-slate-800">
+            <span className="animate-fade-in">spot</span>
+            <span className="text-tactical-emerald mx-0.5 relative flex items-center justify-center opacity-0 animate-glitch-in animation-delay-200">
+              <span className="relative z-10 drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] group-hover:animate-radar-ping">@</span>
               <span className="absolute inset-0 bg-tactical-emerald/20 rounded-full blur-md scale-0 group-hover:scale-150 group-hover:opacity-0 transition-all duration-700"></span>
             </span>
-            <span>NE</span>
+            <span className="animate-fade-in">NE</span>
           </div>
         </div>
 
