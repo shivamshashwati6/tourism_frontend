@@ -18,7 +18,7 @@ export const DynamicFilterStrip = () => {
   };
 
   return (
-    <div className="px-4 pb-6 overflow-x-auto no-scrollbar touch-pan-x max-w-screen-md mx-auto">
+    <div className="mt-4 mb-2 px-4 pb-4 overflow-x-auto no-scrollbar touch-pan-x max-w-screen-md mx-auto">
       <div className="flex gap-2 whitespace-nowrap">
         <button
           onClick={() => setActiveCategory(null)}
