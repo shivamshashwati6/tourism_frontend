@@ -22,20 +22,20 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
     <div className="relative grid grid-cols-[70px_1fr] group">
       {/* The Spine Column */}
       <div className="flex flex-col items-center relative">
-        <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-100 shadow-sm z-10 bg-white flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full overflow-hidden border border-spine-line shadow-sm z-10 bg-background flex items-center justify-center">
           <div className="bg-tactical-emerald/10 w-full h-full flex items-center justify-center">
             <Tag size={20} className="text-tactical-emerald" />
           </div>
         </div>
         {/* Visual Spine */}
-        <div className="absolute left-[34.5px] top-[48px] bottom-0 w-[1px] bg-black/10"></div>
+        <div className="absolute left-[34.5px] top-[48px] bottom-0 w-[1px] bg-spine-line"></div>
       </div>
 
       {/* Content Column */}
       <div className="pb-8 pr-4">
         {/* Identity Header */}
         <div className="flex items-center gap-1.5 mb-1">
-          <span className="font-semibold text-[15px] text-slate-900 leading-tight">
+          <span className="font-semibold text-[15px] text-foreground leading-tight">
             NE Explorer
           </span>
           <span className="text-slate-500 text-sm ml-1">·</span>
@@ -43,7 +43,7 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
 
         <div className="mb-2">
-           <h3 className="text-[17px] font-bold text-slate-900 leading-tight mb-1">{experience.title}</h3>
+           <h3 className="text-[17px] font-bold text-foreground leading-tight mb-1">{experience.title}</h3>
            <div className="flex items-center gap-3 text-slate-500 text-[12px]">
              <div className="flex items-center gap-1">
                <Clock size={12} className="text-tactical-emerald" />
@@ -54,7 +54,7 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
 
         {/* Description */}
-        <p className="text-[15px] text-slate-700 leading-normal mb-3">
+        <p className="text-[15px] text-foreground/80 dark:text-slate-300 leading-normal mb-3">
           {experience.description}
         </p>
 

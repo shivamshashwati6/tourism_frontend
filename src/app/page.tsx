@@ -7,6 +7,7 @@ import { DynamicFilterStrip } from '@/components/layout/DynamicFilterStrip';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { ArtisanProfileCard } from '@/components/feed/ArtisanProfileCard';
 import { ExperienceCard } from '@/components/feed/ExperienceCard';
+import { ProfileView } from '@/components/profile/ProfileView';
 import { useRecommendation } from '@/context/RecommendationEngineContext';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
   }, [activeZone]);
 
   return (
-    <main className="relative min-h-screen bg-[#F8FAFC] pb-32">
+    <main className="relative min-h-screen bg-background pb-32">
       <TopBar />
       
       {/* Main Content Area */}
@@ -83,9 +84,11 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            ) : activeZone === 'Profile' ? (
+              <ProfileView />
             ) : (
               <div className="flex flex-col items-center justify-center py-20 text-slate-400">
-                <div className="w-16 h-16 rounded-full border border-slate-200 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center mb-4">
                   <div className="w-8 h-8 rounded-full bg-tactical-emerald/10 animate-pulse"></div>
                 </div>
                 <p className="text-sm font-medium">Synchronizing {activeZone} Data...</p>

@@ -8,13 +8,13 @@ export const TopBar = () => {
   const isSearch = pathname === '/search';
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-[20px] border-b border-black/[0.05] px-4 py-[16px]">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-[20px] border-b border-spine-line px-4 py-[16px]">
       <div className="relative flex items-center justify-between max-w-screen-md mx-auto h-[28px]">
         <div className="w-8"></div> {/* Spacer for symmetry */}
         
         {/* Centered Logo: Spot-Lumina Aesthetic */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center group cursor-default select-none">
-          <div className="flex items-center text-[28px] text-slate-900 tracking-[-0.02em]">
+          <div className="flex items-center text-[28px] text-foreground tracking-[-0.02em]">
             <span className="font-sans font-normal lowercase">spot</span>
             <span className="text-tactical-emerald mx-[1.5px] relative flex items-center justify-center">
               <span className="relative z-10 font-bold transition-all duration-300">@</span>
