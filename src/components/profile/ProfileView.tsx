@@ -83,9 +83,7 @@ const ProfileMenuItem = ({
     w-full flex items-center justify-between p-5 rounded-[24px] transition-all duration-300 group
     ${isDanger 
       ? 'border border-red-500/10 bg-red-500/[0.02] text-red-500 hover:bg-red-500/[0.05]' 
-      : `bg-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] text-[#1A1A1A] 
-         hover:shadow-[0_15px_50px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-0.5
-         dark:bg-slate-900/50 dark:border dark:border-slate-800 dark:text-foreground dark:hover:bg-slate-900 dark:hover:shadow-none dark:hover:translate-y-0`}
+      : 'bg-white dark:bg-slate-900/50 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] dark:shadow-none text-[#1A1A1A] dark:text-foreground border-transparent dark:border-slate-800 hover:shadow-[0_15px_50px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 dark:hover:bg-slate-900 dark:hover:translate-y-0 transition-all duration-300'}
   `}>
     <div className="flex items-center gap-4">
       <div className={`
