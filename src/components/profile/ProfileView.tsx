@@ -80,28 +80,31 @@ const ProfileMenuItem = ({
   isDanger?: boolean;
 }) => (
   <button className={`
-    w-full flex items-center justify-between p-4 rounded-xl border transition-all duration-300 group
+    w-full flex items-center justify-between p-5 rounded-[24px] transition-all duration-300 group
     ${isDanger 
-      ? 'border-red-500/10 bg-red-500/[0.02] text-red-500 hover:bg-red-500/[0.05]' 
-      : `bg-[#F8FAFC]/60 backdrop-blur-sm border-slate-200 text-[#1A1A1A] 
-         hover:bg-slate-100 hover:shadow-[0_4px_12px_-2px_rgba(0,0,0,0.05)] 
-         dark:bg-slate-900/50 dark:border-slate-800 dark:text-foreground dark:hover:bg-slate-900 dark:hover:shadow-none`}
+      ? 'border border-red-500/10 bg-red-500/[0.02] text-red-500 hover:bg-red-500/[0.05]' 
+      : `bg-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] text-[#1A1A1A] 
+         hover:shadow-[0_15px_50px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-0.5
+         dark:bg-slate-900/50 dark:border dark:border-slate-800 dark:text-foreground dark:hover:bg-slate-900 dark:hover:shadow-none dark:hover:translate-y-0`}
   `}>
-    <div className="flex items-center gap-3">
-      <div className={`${isDanger ? 'text-red-500' : 'text-tactical-emerald dark:text-slate-500 transition-colors group-hover:text-tactical-emerald'}`}>
-        {icon}
+    <div className="flex items-center gap-4">
+      <div className={`
+        ${isDanger ? 'text-red-500' : 'text-tactical-emerald dark:text-slate-500 transition-all duration-300 group-hover:scale-110'}
+        ${!isDanger && 'drop-shadow-[0_0_8px_rgba(16,185,129,0.2)]'}
+      `}>
+        {React.cloneElement(icon as React.ReactElement, { size: 22, strokeWidth: 2.5 })}
       </div>
-      <span className="text-sm font-bold tracking-tight">{label}</span>
+      <span className="text-[16px] font-bold tracking-tight">{label}</span>
     </div>
     {count && (
-      <span className={`
-        text-[10px] font-black px-2 py-0.5 rounded-full 
+      <div className={`
+        w-7 h-7 flex items-center justify-center rounded-full text-[12px] font-bold
         ${isDanger 
           ? 'bg-red-500/10 text-red-500' 
-          : 'bg-tactical-emerald text-[#1A1A1A] dark:bg-tactical-emerald/10 dark:text-tactical-emerald'}
+          : 'bg-[#10B981] text-white shadow-[0_4px_10px_rgba(16,185,129,0.3)]'}
       `}>
         {count}
-      </span>
+      </div>
     )}
   </button>
 );
