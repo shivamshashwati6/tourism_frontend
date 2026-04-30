@@ -52,7 +52,10 @@ export const ProfileView = () => {
       </div>
 
       {/* Menu Options */}
-      <div className="space-y-3">
+      <div className="relative pl-12 space-y-3">
+        {/* Profile Vertical Spine */}
+        <div className="absolute left-[23.5px] top-0 bottom-0 w-[1px] bg-spine-line"></div>
+        
         <ProfileMenuItem icon={<Star size={18} />} label="Saved Experiences" count="5" />
         <ProfileMenuItem icon={<Shield size={18} />} label="Security Protocol" />
         <ProfileMenuItem icon={<Settings size={18} />} label="Interface Settings" />
@@ -80,16 +83,18 @@ const ProfileMenuItem = ({
   isDanger?: boolean;
 }) => (
   <button className={`
-    w-full flex items-center justify-between p-4 rounded-xl border transition-all duration-200
+    w-full flex items-center justify-between p-4 rounded-xl border transition-all duration-300
     ${isDanger 
       ? 'border-red-500/10 bg-red-500/[0.02] text-red-500 hover:bg-red-500/[0.05]' 
-      : 'border-slate-100 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 text-foreground hover:border-tactical-emerald/30 hover:bg-white dark:hover:bg-slate-900'}
+      : 'border-slate-200/80 bg-slate-100/50 dark:bg-slate-900/40 dark:border-slate-800 text-[#1A1A1A] dark:text-slate-100 hover:bg-[#F1F5F9] dark:hover:bg-slate-800 hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] hover:border-tactical-emerald/30'}
   `}>
     <div className="flex items-center gap-3">
-      <div className={`${isDanger ? 'text-red-500' : 'text-slate-400 dark:text-slate-500'}`}>
+      <div className={`${isDanger ? 'text-red-500' : 'text-tactical-emerald dark:text-tactical-green'}`}>
         {icon}
       </div>
-      <span className="text-sm font-bold tracking-tight">{label}</span>
+      <span className={`text-sm font-bold tracking-tight ${isDanger ? '' : 'text-[#1A1A1A] dark:text-slate-200'}`}>
+        {label}
+      </span>
     </div>
     {count && (
       <span className="text-[10px] font-black bg-tactical-emerald/10 text-tactical-emerald px-2 py-0.5 rounded-full">
