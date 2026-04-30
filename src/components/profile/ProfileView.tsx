@@ -80,19 +80,26 @@ const ProfileMenuItem = ({
   isDanger?: boolean;
 }) => (
   <button className={`
-    w-full flex items-center justify-between p-4 rounded-xl border transition-all duration-200
+    w-full flex items-center justify-between p-4 rounded-xl border transition-all duration-300 group
     ${isDanger 
       ? 'border-red-500/10 bg-red-500/[0.02] text-red-500 hover:bg-red-500/[0.05]' 
-      : 'border-slate-100 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 text-foreground hover:border-tactical-emerald/30 hover:bg-white dark:hover:bg-slate-900'}
+      : `bg-[#F8FAFC]/60 backdrop-blur-sm border-slate-200 text-[#1A1A1A] 
+         hover:bg-slate-100 hover:shadow-[0_4px_12px_-2px_rgba(0,0,0,0.05)] 
+         dark:bg-slate-900/50 dark:border-slate-800 dark:text-foreground dark:hover:bg-slate-900 dark:hover:shadow-none`}
   `}>
     <div className="flex items-center gap-3">
-      <div className={`${isDanger ? 'text-red-500' : 'text-slate-400 dark:text-slate-500'}`}>
+      <div className={`${isDanger ? 'text-red-500' : 'text-tactical-emerald dark:text-slate-500 transition-colors group-hover:text-tactical-emerald'}`}>
         {icon}
       </div>
       <span className="text-sm font-bold tracking-tight">{label}</span>
     </div>
     {count && (
-      <span className="text-[10px] font-black bg-tactical-emerald/10 text-tactical-emerald px-2 py-0.5 rounded-full">
+      <span className={`
+        text-[10px] font-black px-2 py-0.5 rounded-full 
+        ${isDanger 
+          ? 'bg-red-500/10 text-red-500' 
+          : 'bg-tactical-emerald text-[#1A1A1A] dark:bg-tactical-emerald/10 dark:text-tactical-emerald'}
+      `}>
         {count}
       </span>
     )}
